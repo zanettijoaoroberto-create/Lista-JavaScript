@@ -105,60 +105,97 @@ const gerarTabuada = () => {
 }
 };
 
-const exercicio5 = () => {
-    //Solicita um número ao usuário
-numero = int(input("Digite um número: "))
 
-//Exibe a tabuada de 1 a 10
-for i in range(1, 11):
-    resultado = numero * i
-    print(f"s{número} x {i} = {resultado}")
+const exercicio8 = () => {
+  let resultado = document.getElementById("resultado");
+  let erro = document.getElementById("erro");
+  let palavra = document.getElementById("palavra").value;
+
+  // Limpar os campos da tela, caso tenha alguma coisa.
+  resultado.innerHTML = "";
+  erro.innerHTML = "";
+
+  // Variavel para armazenar a palavra invertida
+  let palavraInvertida = "";
+
+  //Loop de 1 até o "tamanho" da palavra
+  for (let i = palavra.length - 1; i >= 0; i--) {
+    palavraInvertida += palavra[i];
+  }
+
+  // Exibir a palavra invertida no resultado
+  resultado.innerHTML = `A palavra invertida é: ${palavraInvertida}`;
+  erro.innerHTML = "";
+
+  if (palavra == palavraInvertida) {
+    resultado.innerHTML += "<br/> A palavra é um palíndromo";
+  } else {
+    resultado.innerHTML += "<br/> A palavra não é um palíndromo";
+  }
 };
 
-const exercicio6 = () => {};
 
-const exercicio7 = () => {};
 
-const exercicio8 = () => {};
 
-const exercicio9 = () => {};
+//exercício 10 
+let soma = 0;
+let contador = 0;
+const exercicio10 = () => {
+  let resultado = document.getElementById("resultado");
+  let erro = document.getElementById("erro");
+  let numero = document.getElementById("num").value;
+  // if (numero != "0") {
+  //   soma += parseFloat(numero);
+  //   contador++;
+  // }
+  // resultado.innerHTML = `A média dos números digitados é: ${soma / contador}`;
+  // erro.innerHTML = "";
+  while (numero != "0") {
+    soma += parseFloat(numero);
+    contador++;
+    numero = prompt("Digite um número: ");
+  }
+  if (contador > 0) {
+    resultado.innerHTML = `Foram digitados ${contador} números. A média da soma dos números digitados é: ${soma / contador}`;
+    erro.innerHTML = "";
+  }
+  soma = 0;
+  contador = 0;
+};
 
-const exercicio10 = () => {};
-
-const exercicio11 = () => {};
-
-const exercicio12 = () => {};
-
-const exercicio13 = () => {};
-
-const exercicio14 = () => {};
-
-const exercicio15 = () => {};
-
-const exercicio16 = () => {};
-
-const exercicio17 = () => {};
-
-const exercicio18 = () => {};
-
-const exercicio19 = () => {};
-
-const exercicio20 = () => {};
-
-const exercicio21 = () => {};
-
-const exercicio22 = () => {};
-
-const exercicio23 = () => {};
-
-const exercicio24 = () => {};
-
-const exercicio25 = () => {
     let n1 = parseFloat(prompt("Digite o primeiro número:"));
     let n2 = parseFloat(prompt("Digite o segundo número:"));
      let n3 = parseFloat(prompt("Digite o terceiro número:"));
 
 let lista = [n1, n2, n3].sort((a, b) => a - b);
 
-alert("A ordem crescente é: " + lista.join(", "));
-};         
+alert("A ordem crescente é: " + lista.join(","));
+};
+
+//exercicio 17
+const exercicio17 = () => {
+
+    let base = document.getElementById("num1").value;
+    let altura = document.getElementById("num2").value;
+
+  
+    base = parseInt(base);
+    altura = parseInt(altura);
+
+  
+    let resultado = document.getElementById("resultado");
+    let erro = document.getElementById("erro");
+
+    erro.innerHTML = "";
+    resultado.innerHTML = "";
+
+
+    if (base <= 0 || altura <= 0) {
+        erro.innerHTML = "Digite valores válidos para base e altura!";
+        return;
+    }
+
+    let area = (base * altura) / 2;
+
+    resultado.innerHTML = "Área do triângulo: " + area;
+};
